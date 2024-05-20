@@ -26,10 +26,10 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     <input class="menu-btn" type="checkbox" id="menu-btn" />
     <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
     <ul class="menu">
-      <li><a href="install.php">Instalacja</a></li>
-      <li><a href="computers.php">Komputery</a></li>
-      <li><a href="users.php">Uzytkownicy </a></li>
-      <li><a href="status.php">Status </a></li>
+      <li><a href="install.html">Instalacja</a></li>
+      <li><a href="computers.html">Komputery</a></li>
+      <li><a href="users.html">Uzytkownicy </a></li>
+      <li><a href="status.html">Status </a></li>
       <li><a onclick="showBackup()" href="#">Backup</a></li>
       <li>
         <a>
@@ -121,7 +121,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     </footer>
   </form>
   <section class="showBackup" id="showBackup">
-    <form method="post" action="php/backup.php">
+    <form method="post" action="backup.php">
       <div class="center">
         Backup<br>
         <input type="submit" name="Backup" value="Zrób Backup">
