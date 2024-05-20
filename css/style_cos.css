@@ -1,0 +1,138 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+body{
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  background: #23242a;
+  margin-top: 0px;
+}
+
+.nav {
+background-color: #333;
+padding-inline: 1rem;
+}
+.toggle {
+position: absolute;
+ top: 0.7rem;
+ right: 1rem;
+cursor: pointer;
+}
+
+.toggle .menu {
+height: 2rem;
+margin-top: 0.2rem;
+
+}
+.toggle .close {
+display: none;
+height: 2.3rem;
+margin-right: 0.2rem;
+}
+.nav-checkbox {
+display: none;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.menu li {
+  display: none;
+  padding: 1rem;
+  list-style: none;
+}
+.menu li:first-child{
+  display: block;
+  margin-right: auto;
+  padding: 0;
+}
+ .menu a {
+  color: inherit;
+  font-size: 1.2rem;
+  text-decoration: none;
+ }
+
+.logo{
+ height: 2.5em;
+ margin-top: 0.7rem;
+}
+#nav-checkbox:checked~ul.menu, li {
+ display: block;
+}
+#nav-checkbox:checked~label.toggle .close {
+ display: flex;
+}
+#nav-checkbox:checked~label.toggle .menu {
+ display: none;
+}
+@media (min-width: 500px) {
+    .toggle{
+      display: none;}
+    .menu{
+      flex-direction: row;}
+    .menu li {
+      display: block;
+    } 
+}
+
+
+
+
+
+
+
+/* tu cos kombinuje */
+.navbar{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #08438f;
+    padding-block: 15px;
+}
+.navbar a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.list {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+#toggler, .navbar label{
+    display: none;
+}
+
+/* navbar responsible */
+@media screen and (max-width: 950px) {
+.menu {
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+}
+.list {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+.navbar label {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+}
+#toggler:checked ~ .menu {
+    max-height: 100%;
+}
+    header h1  {
+      font-size: 26px;
+      transition: 0.8s;
+    }
+  }

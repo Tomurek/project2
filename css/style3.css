@@ -1,0 +1,856 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  --buttonsubmit: #4CAF50;
+  --buttonsubmithover: #409244;
+  --headtextcolor: #fff;
+/* te do ustalenia */
+  --columncolor2: #b6b6b6;
+  --tdtext: #7a91aa;
+}
+
+:root {
+  --headerbackground: #1d1e22;
+  --background: #2d2d33;
+  --textcolor: #fff;
+  --tabelback: #3d3d44;
+  --tabelback2: #2d2d33;
+  --theadback: #212125;
+  --tdborder: #2d2d33;
+  --colorlight: #4b4949;
+  --columncolor: rgb(0, 0, 110);
+}
+
+/* nie dark tylko light ale neich tak zostanie xD */
+html[data-theme="dark"] {
+  --headerbackground: #2e3036;
+  --background: #e7e5e5;
+  --textcolor: #000;
+  --tabelback: #EEEEEE;
+  --tabelback2: #d1d1d1;
+  --theadback: #b9b9b9;
+  --tdborder: #d1d1d1;
+  --colorlight: #f2f2f2;
+  --columncolor: #b3b3b3;
+}
+
+
+/* #23242a */
+body{
+  justify-content: center;
+  min-height: 100vh;
+  max-height: 1200px;
+  margin-top: 0px;
+  font-family: Arial;
+} 
+
+.container {
+  background-color: var(--background);
+  margin-right: auto;
+  margin-left: auto;
+  overflow: hidden;
+}
+
+h4{
+  margin-top: 0px;
+  margin-bottom: 10px;
+}
+a {
+  color: var(--headtextcolor);
+}
+
+/* header */
+.header {
+  background-color: var(--headerbackground);
+  position: sticky;
+  width: 100%;
+  clear: both;
+  height: 75px;
+  z-index: 3;
+}
+
+header img {
+  height: 75px;
+  }
+.header ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  overflow: hidden;
+  background-color: var(--headerbackground);
+}
+
+.header li a {
+  display: block;
+  padding: 15px 20px;
+  text-decoration: none;
+  font-family: arial;
+  font-weight: bold;
+}
+
+.header li a:hover,
+.header .menu-btn:hover {
+  background-color: #f4f4f4;
+  color: var(--headerbackground);
+}
+
+.header .logo {
+  display: block;
+  float: left;
+  font-size: 2em;
+  height: 75px;
+  padding: 0px 20px 0 20px;
+  text-decoration: none;
+}
+
+/* menu */
+
+.header .menu {
+  position: sticky;
+  clear: both;
+  max-height: 0;
+  transition: max-height .2s ease-out;
+  margin-top: 7px;
+/* float right jesli chcemy przesuwany */
+text-align: right;
+
+}
+
+/* menu icon */
+
+.header .menu-icon {
+  cursor: pointer;
+  display: inline-block;
+  float: right;
+  padding: 28px 20px;
+  position: relative;
+  user-select: none;
+}
+
+.header .menu-icon .navicon {
+  background: var(--headtextcolor);
+  display: block;
+  height: 2px;
+  position: relative;
+  transition: background .2s ease-out;
+  width: 18px;
+}
+
+.header .menu-icon .navicon:before,
+.header .menu-icon .navicon:after {
+  background: var(--headtextcolor);
+  content: '';
+  display: block;
+  height: 100%;
+  position: absolute;
+  transition: all .2s ease-out;
+  width: 100%;
+}
+
+.header .menu-icon .navicon:before {
+  top: 5px;
+}
+
+.header .menu-icon .navicon:after {
+  top: -5px;
+}
+
+/* menu btn */
+
+.header .menu-btn {
+  display: none;
+}
+
+.header .menu-btn:checked ~ .menu {
+  max-height: 240px;
+}
+
+.header .menu-btn:checked ~ .menu-icon .navicon {
+  background: transparent;
+}
+
+.header .menu-btn:checked ~ .menu-icon .navicon:before {
+  transform: rotate(-45deg);
+}
+
+.header .menu-btn:checked ~ .menu-icon .navicon:after {
+  transform: rotate(45deg);
+}
+
+.header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:before,
+.header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
+  top: 0;
+}
+
+  a.active {
+  color: var(--textcolor);
+  cursor: default;
+  }
+  
+  .logout {
+    width: auto !important;
+    background-color: rgba(0, 0, 0, 0.0) !important;
+    color: inherit !important; 
+    outline: none;
+    font-size: 16px !important;
+    font-family: arial ;
+    font-weight: bold;
+    cursor: pointer !important; 
+    padding: 0 !important;
+    margin-top: -8px;
+  }
+
+  /* .logout:hover {
+    color: var(--headerbackground) !important; 
+  } */
+
+input.logout {
+  height: 18px !important;
+  margin: 0 !important;
+}
+
+@media (min-width: 850px) {
+  .header li {
+    float: left;
+  }
+  .header li a {
+    padding: 20px 30px;
+  }
+  .header .menu {
+    clear: none;
+    float: right;
+    max-height: none;
+  }
+  .header .menu-icon {
+    display: none;
+  }
+}
+
+/* main */
+.main-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  clear: both;
+  height: auto;
+}
+
+.left-column, .right-column {
+  width: 250px;
+  color: var(--textcolor);
+  margin-bottom: 10px;
+  text-align: center;
+  font-size: 20px;
+
+}
+
+.right-column {
+  margin-left: 10px; 
+  padding: 20px;
+  border-radius: 20px;
+  background-color: var(--columncolor);
+  font-size: 20px;
+}
+
+.main-container input {
+  margin-right: 5px;
+}
+
+
+.sub-box1, .sub-box2, .sub-box3, .sub-box4 {
+  width: 100%;
+  padding: 20px;
+  margin-bottom: 10px;
+  border-radius: 20px;
+  background-color: var(--columncolor);
+}
+
+.sub-box4 {
+  margin-bottom: 0px;
+}
+
+.center {
+  text-align: center;
+}
+
+.blue-btn {
+  width: auto;
+  padding: 10px 20px;
+  background-color: var(--columncolor);
+  color: var(--textcolor);
+  border-radius: 10px;
+  border: none;
+  font-size: 26px;
+  display: inline-block; 
+}
+
+.blue-btn h4{
+  margin-bottom: 0px;
+  }
+
+.blue-btn #send{
+  font-size: 20px;
+  }
+.cos {
+  display: grid;
+  place-items: center;
+  }
+
+button {
+  /* font-family: inherit; */
+  font-size: 20px;
+  background: var(--columncolor);
+  color: var(--textcolor);
+  padding: 0.7em 1em;
+  padding-left: 0.9em;
+  display: flex;
+  border: none;
+  border-radius: 16px;
+  overflow: hidden;
+  /* transition: all 0.2s; */
+}
+.speed-input {
+  border: none;
+  padding: 7px;
+  border-radius: 10px;
+  background: var(--headtextcolor);
+  color: #000;
+  outline: none;
+  transition: 0.3s;
+  font-size: 14px;
+  }
+
+button span {
+  display: block;
+  margin-left: 0.3em;
+  /* transition: all 0.3s ease-in-out; */
+}
+button svg {
+  display: block;
+  transform-origin: center center;
+  transition: transform 0.3s ease-in-out;
+}
+button:hover .svg-wrapper {
+  animation: fly-1 0.6s ease-in-out infinite alternate;
+}
+button:hover svg {
+  transform: translateX(1.2em) rotate(45deg) scale(1.1);
+}
+button:hover span {
+  transform: translateX(5em);
+}
+
+@keyframes fly-1 {
+  from {
+    transform: translateY(0.1em);
+  }
+  to {
+    transform: translateY(-0.1em);
+  }
+}
+#alert, .alertB {
+  position: fixed;
+  top: 13%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: red;
+  color: white;
+  font-weight: bold;
+  padding: 20px;
+  text-align: center;
+  z-index: 1;
+  border-radius: 5px;
+  display: none;
+  font-size: 26px;
+}
+
+.alertB {
+  color: red;
+  font-weight: bold;
+  text-align: center;
+  z-index: 1;
+  display: contents;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* tabele */
+main.main {
+  background-color: var(--tabelback);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  font-family: "Lato", sans-serif;
+  margin: 40px;
+  max-width: 1840px;
+  position: relative;
+}
+
+table {
+  display: block;
+}
+
+tr,
+td,
+tbody,
+tfoot {
+  display: block;
+}
+
+thead {
+  display: none;
+}
+
+tr {
+  padding-bottom: 10px;
+}
+
+td {
+  padding: 10px 10px 0;
+  text-align: center;
+  color: var(--textcolor);
+}
+
+td:before {
+  content: attr(data-title);
+  color: var(--tdtext);
+  text-transform: uppercase;
+  font-size: 1.4rem;
+  padding-right: 10px;
+  display: block;
+}
+
+table {
+  width: 100%;
+}
+
+th {
+  text-align: left;
+  font-weight: 900;
+}
+
+thead th {
+  background-color: var(--theadback);
+  color: var(--textcolor);
+  border: 1px solid var(--theadback);
+}
+
+tfoot th {
+  display: block;
+  padding: 10px;
+  text-align: center;
+  color: #b8c4d2;
+}
+
+.button {
+  line-height: 1;
+  display: inline-block;
+  border: none;
+  text-decoration: none;
+  border-radius: 5px;
+  color: var(--headtextcolor);
+  padding: 8px;
+  background-color: var(--buttonsubmit);
+}
+
+.select {
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--tdborder);
+  /* display: flex;
+  justify-content: space-evenly; */
+}
+
+.select:before {
+  display: none;
+}
+
+
+
+@media (min-width: 460px) {
+  td {
+    text-align: left;
+  }
+
+  td:before {
+    display: inline-block;
+    text-align: right;
+    width: 140px;
+  }
+
+  .select {
+    padding-left: 160px;
+  }
+}
+
+@media (min-width: 720px) {
+  table {
+    display: table;
+  }
+
+  tr {
+    display: table-row;
+  }
+
+  td,
+  th {
+    display: table-cell;
+  }
+
+  tbody {
+    display: table-row-group;
+  }
+
+  thead {
+    display: table-header-group;
+  }
+
+  tfoot {
+    display: table-footer-group;
+  }
+
+  td {
+    border: 1px solid var(--tdborder);
+  }
+
+  td:before {
+    display: none;
+  }
+
+  td,
+  th {
+    padding: 10px;
+  }
+
+  tr:nth-child(2n + 2) td {
+    background-color: var(--tabelback2);
+  }
+
+  tfoot th {
+    display: table-cell;
+  }
+
+  .select {
+    padding: 10px;
+  }
+}
+
+.adduser, .edituser, .delluser, .showBackup {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--colorlight);
+  padding: 20px;
+  box-shadow: 0px 0px 10px #888888;
+  border-radius: 10px;
+  display: none;
+}
+
+label {
+  color: var(--textcolor);
+}
+
+.center {
+  text-align: center;
+}
+
+input[type="text"], input[type="password"], input[type="MAC"] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  /* font-size: 16px; */
+}
+
+input[type="submit"] {
+  width: 100%;
+  background-color: var(--buttonsubmit);
+  color: var(--textcolor);
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover,
+.button:hover,
+.button:focus {
+  background-color: var(--buttonsubmithover);
+  cursor: pointer;
+}
+
+.has-error {
+  color: red;
+}
+
+/* nowy select option */
+.selectop {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background: var(--headtextcolor);
+}
+
+
+
+
+/* nowe chechbox */
+
+.number_checkbox {
+  margin-top: 2px;
+  
+}
+
+ input[type="checkbox"] {
+  height: 0.9rem;
+  width: 0.9rem;
+  display: inline-block;
+  appearance: none;
+  position: relative;
+  background-color: #F2ECFF;
+  border-radius: 15%;
+  cursor: pointer;
+  overflow: hidden;
+ }
+ 
+ input[type="checkbox"]::after {
+  content: '';
+  display: block;
+  height: 0.5rem;
+  width: .2rem;
+  border-bottom: .16rem solid #a0ffe7;
+  border-right: .16rem solid #a0ffe7;
+  opacity: 0;
+  transform: rotate(45deg) translate(-50%, -50%);
+  position: absolute;
+  top: 45%;
+  left: 21%;
+  transition: .25s ease;
+ }
+ 
+ input[type="checkbox"]::before {
+  content: '';
+  display: block;
+  height: 0;
+  width: 0;
+  background-color: #00C896;
+  border-radius: 50%;
+  opacity: .5;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transition: .3s ease;
+ }
+ 
+ input[type="checkbox"]:checked::before {
+  height: 130%;
+  width: 130%;
+  opacity: 100%;
+ }
+ 
+ input[type="checkbox"]:checked::after {
+  opacity: 100%;
+ }
+ 
+
+
+ /*dark/light mode*/
+ /* The switch - the box around the slider */
+ .switch {
+  font-size: 17px;
+  position: relative;
+  display: inline-block;
+  width: 3.5em;
+  height: 2em;
+  margin-top: 20px;
+  
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  --background2: #4e4e4e;
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--background2);
+  transition: .5s;
+  border-radius: 30px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 1.4em;
+  width: 1.4em;
+  border-radius: 50%;
+  left: 10%;
+  bottom: 15%;
+  box-shadow: inset 8px -4px 0px 0px #fff000;
+  background: var(--background2);
+  transition: .3s;
+}
+
+input:checked + .slider {
+  background-color: #8b8b8b;
+}
+
+input:checked + .slider:before {
+  transform: translateX(100%);
+  box-shadow: inset 15px -4px 0px 15px #fff000;
+} 
+
+/* status monitor */
+@import url(https://fonts.googleapis.com/css?family=Lato:100,400);
+
+.box{
+  width: 100px;
+  position: relative;
+  left: calc(50% - 125px);
+  top: calc(50% - 100px);
+  left: -webkit-calc(50% - 125px);
+  top: -webkit-calc(50% - 100px);
+}
+
+.box span{
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  font-size: 20px;
+  position: absolute;
+}
+
+.box span:nth-child(2){
+  top: 0px;
+  left: 125px;
+}
+
+
+.server{
+  width: 110px;
+  height: 30px;
+  background: inherit;
+  /* background: #3a3a3a; */
+  border-radius: 1px;
+}
+
+.server ul{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.server:first-child ul li{
+  width: 6px;
+  height: 6px;
+  float: left;
+  margin-left: 10px;
+  margin-top: 12px;
+  background: rgba(149,244,118,0.6);
+}
+
+.server ul li:first-child{
+  -webkit-animation: pattern1 0.14s linear infinite;
+}
+.server ul li:nth-child(2){
+  -webkit-animation: pattern1 0.14s 0.10s linear infinite;
+}
+.server ul li:nth-child(3){
+  -webkit-animation: pattern1 0.14s 0.08s linear infinite;
+}
+.server ul li:nth-child(4){
+  -webkit-animation: pattern1 0.14s 0.06s linear infinite;
+}
+.server ul li:nth-child(5){
+  -webkit-animation: pattern1 0.14s 0.04s linear infinite;
+}
+.server ul li:last-child{
+  -webkit-animation: pattern1 0.14s 0.02s linear infinite;
+}
+
+@-webkit-keyframes pattern1{
+  0%{
+    background: rgba(149,244,118,0.6);
+  }
+  100%{
+    background: rgba(149,244,118,1);
+  }
+}
+
+.warning ul li{
+  width: 6px;
+  height: 6px;
+  float: left;
+  margin-left: 10px;
+  margin-top: 12px;
+  background: rgba(245,190,0,0.6);
+}
+
+.warning ul li:nth-child(odd){
+  -webkit-animation: pattern2 0.14s linear infinite;
+}
+
+.warning ul li:nth-child(even){
+  -webkit-animation: pattern2 0.14s 0.02s linear infinite;
+}
+
+@-webkit-keyframes pattern2{
+  0%{
+    background: rgba(245,190,0,0.6);
+  }
+  100%{
+    background: rgba(245,190,0,1);
+  }
+}
+
+.error ul li{
+  width: 6px;
+  height: 6px;
+  float: left;
+  margin-left: 10px;
+  margin-top: 12px;
+  background: rgba(236,69,62,0.6);
+}
+
+.error ul li:nth-child(odd){
+  -webkit-animation: pattern3 0.14s 0.12s linear infinite;
+}
+
+.error ul li:nth-child(even){
+  -webkit-animation: pattern3 0.14s 0.02s linear infinite;
+}
+
+@-webkit-keyframes pattern3{
+  0%{
+    background: rgba(236,69,62,0.6);
+  }
+  80%{
+    background: rgba(236,69,62,0.6);
+  }
+  100%{
+    background: rgba(236,69,62,1);
+  }
+}
+
+
+/* jebane paski po boku */
+@media (min-width:1200px) {
+  .container {
+      width: 1170px
+  }
+}

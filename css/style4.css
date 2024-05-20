@@ -1,0 +1,162 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: rgb(75, 75, 75);
+    background-image: url("sapphire.jpg");
+    opacity: 0.8;
+  }
+ 
+h4{
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+
+  .main-container {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .left-column, .right-column {
+    width: 200px;
+    color: #fff;
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: 20px;
+  }
+  
+  .right-column {
+    margin-left: 50px; 
+    padding: 20px;
+    border-radius: 20px;
+    background-color: rgb(0, 0, 110);
+    font-size: 20px;
+  }
+  
+  .sub-box1, .sub-box2, .sub-box3, .sub-box4 {
+    width: 100%;
+    padding: 20px;
+    margin-bottom: 10px;
+    border-radius: 20px;
+    background-color: rgb(0, 0, 110);
+  }
+
+  .sub-box4 {
+    margin-bottom: 0px;
+  }
+  
+  .center {
+    text-align: center;
+  }
+
+  .blue-btn {
+    width: auto;
+    padding: 10px 20px;
+    background-color: rgb(0, 0, 110);
+    color: #fff;
+    border-radius: 10px;
+    border: none;
+    font-size: 26px;
+  }
+
+  .blue-btn h4{
+    margin-bottom: 0px;
+   }
+
+   .blue-btn #send{
+    font-size: 20px;
+   }
+  
+  @media (max-width: 500px) {
+    .left-column, .right-column {
+      width: 100%;
+    }
+  }
+  
+
+
+  
+
+
+
+
+/* tu stary css navbaru
+/* Nagłówek 
+header {
+  position: static;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #08438f;
+  color: #fff;
+  padding: 10px 20px;
+  height: 60px;
+  width: 100%;
+  
+  }
+  
+  header img {
+  height: 50px;
+  }
+  
+  header h1 {
+  text-align: center;
+  font-size: 36px;
+  margin: 0;
+  margin-left: 0px;
+  }
+  
+  header a {
+  text-decoration: none;
+  color: #fff;
+  }
+  
+  h3{
+  margin-top: 0px;
+  font-size: 22px;
+  }
+  
+  /* Menu 
+  nav ul {
+  list-style: none;
+  margin: 0;
+  display: inline-flex;
+  width: 100%
+  }
+  
+  nav a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0 10px;
+  }
+  
+  
+  
+  
+  
+  nav a:hover{
+  color: #45f3ff;
+  }
+  
+  a.active {
+  color: #45f3ff;
+  cursor: default;
+  }
+  
+  .logout {
+    width: auto !important;
+    background-color: #08438f !important;
+    font-size: 16px !important;
+    font-family: arial !important;
+    font-weight: bold !important;
+    margin: 0 10px !important;
+    cursor: pointer !important; 
+    padding: 0 !important;
+    color: #fff;
+  }
+  
+  .logout:hover {
+    color: #45f3ff;
+  } */
+

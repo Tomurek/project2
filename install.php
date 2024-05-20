@@ -1,0 +1,134 @@
+<?php
+
+session_start();
+
+if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+    header("location: login.php");
+    exit;
+}
+?>
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Tytuł strony</title>
+  <link rel="stylesheet" type="text/css" href="CSS/style3.css">
+  <script src="script.js"></script>
+</head>
+
+<body class="container">
+  <header class="header">
+    <a href="" class="logo"><img src="image/logo.png" alt="Logo strony"></a>
+    <label class="switch">
+      <input type="checkbox" id="dark-mode-switch" onclick="switchTheme(event)" />
+      <span class="slider"></span>
+    </label>
+    <input class="menu-btn" type="checkbox" id="menu-btn" />
+    <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+    <ul class="menu">
+      <li><a href="install.php">Instalacja</a></li>
+      <li><a href="computers.php">Komputery</a></li>
+      <li><a href="users.php">Uzytkownicy </a></li>
+      <li><a href="status.php">Status </a></li>
+      <li><a onclick="showBackup()" href="#">Backup</a></li>
+      <li>
+        <a>
+          <form action="wyloguj.php"><input class="logout" type="submit" name="wyloguj" value="Wyloguj"></input></form>
+        </a>
+      </li>
+    </ul>
+  </header>
+  <form id="form" name="input" action="wyslij.php" method="post">
+    <main>
+      <div class="main-container">
+        <div class="left-column">
+          <div class="sub-box1">
+            <h4>Wybór komputerów</h4>
+            <section class="radio_comps"><input id="comps" type="radio" value="dol" name="komp">Dolne</section>
+            <section class="radio_comps"><input id="comps" type="radio" value="gora" name="komp">Górne</section>
+          </div>
+          <div class="sub-box2">
+            <h4>Typ bootowania</h4>
+            <section class="radio_boot"><input id="boot" type="radio" id="Legacy" name="boot" value="legacy">Legacy<br>
+            </section>
+            <section class="radio_boot"><input id="boot" type="radio" id="EFI" name="boot" value="UEFI">UEFI</section>
+          </div>
+          <div class="sub-box3">
+            <h4>Kopiować maszyny wirtualne?</h4>
+            <section class="radio_vm"><input id="vm" type="radio" name="vm" value="tak">tak</section>
+            <section class="radio_vm"><input id="vm" type="radio" name="vm" value="nie">nie</section>
+          </div>
+          <div class="sub-box4">
+            <h4>GUI czy CLI</h4>
+            <section class="radio_env"><input id="env" type="radio" name="Enviroment" value="GUI">GUI</section>
+            <section class="radio_env"><input id="env" type="radio" name="Enviroment" value="CLI">CLI</section>
+          </div>
+        </div>
+        <div class="right-column">
+          <h4>Numery stanowisk</h4>
+          <section id="od1">
+            <section class="number_checkbox"><input id="number" type="checkbox" name="workplace[]" value="1">1</section>
+            <section class="number_checkbox"><input id="number" type="checkbox" name="workplace[]" value="2">2</section>
+            <section class="number_checkbox"><input id="number" type="checkbox" name="workplace[]" value="3">3</section>
+            <section class="number_checkbox"><input id="number" type="checkbox" name="workplace[]" value="4">4</section>
+            <section class="number_checkbox"><input id="number" type="checkbox" name="workplace[]" value="5">5</section>
+            <section class="number_checkbox"><input id="number" type="checkbox" name="workplace[]" value="6">6</section>
+            <section class="number_checkbox"><input id="number" type="checkbox" name="workplace[]" value="7">7</section>
+            <section class="number_checkbox"><input id="number" type="checkbox" name="workplace[]" value="8">8</section>
+            <section class="number_checkbox"><input id="number" type="checkbox" name="workplace[]" value="9">9</section>
+            <section class="number_checkbox"><input id="number" type="checkbox" name="workplace[]" value="10">10
+            </section>
+            <section class="number_checkbox"><input id="number" type="checkbox" name="workplace[]" value="11">11
+            </section>
+            <section class="number_checkbox"><input id="number" type="checkbox" name="workplace[]" value="12">12
+            </section>
+            <section class="number_checkbox"><input id="number" type="checkbox" name="workplace[]" value="13">13
+            </section>
+            <section class="number_checkbox"><input id="number" type="checkbox" name="workplace[]" value="14">14
+            </section>
+            <section class="number_checkbox"><input id="number" type="checkbox" name="workplace[]" value="15">15
+            </section>
+            <section class="number_checkbox"><input id="number" type="checkbox" name="workplace[]" value="16">16
+            </section>
+            <section class="number_checkbox"><input id="number" type="checkbox" name="workplace[]" value="17">17
+            </section>
+            <section class="number_checkbox"><input id="number" type="checkbox" name="workplace[]" value="18">18
+            </section>
+          </section>
+        </div>
+    </main>
+    <footer>
+      <div class="center">
+        <div class="blue-btn">
+          <h4>Prędkość kopiowania</h4>
+          <input class="speed-input" id="speed" type="number" name="speed" value="">
+        </div>
+        <div class="cos">
+          <button id="send" type="submit" name="wyslij">
+            <div class="svg-wrapper-1">
+              <div class="svg-wrapper">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                  <path fill="none" d="M0 0h24v24H0z"></path>
+                  <path fill="currentColor" d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z">
+                  </path>
+                </svg>
+              </div>
+            </div>
+            <span>Wyślij</span>
+          </button>
+        </div>
+      </div>
+    </footer>
+  </form>
+  <section class="showBackup" id="showBackup">
+    <form method="post" action="php/backup.php">
+      <div class="center">
+        Backup<br>
+        <input type="submit" name="Backup" value="Zrób Backup">
+        <a class="alertB" onclick="hideBackup()">Anuluj</a>
+      </div>
+    </form>
+  </section>
+</body>
+
+</html>
